@@ -27,11 +27,17 @@ read_csv()
 
     
 
-def quiz():
-    st.write("Starting quiz...")
+def start_quiz():
+    #st.write("Starting quiz...")
     st.session_state.show_topic_choice = False
-    st.session_state.selected_questions = []
+
+    # TODO: select questions randomly
+
+    st.session_state.selected_questions = [[1,2][0,3][1,5]]
     st.session_state.q_index = 0
+    st.session_state.quiz_mode = True
+
+
     
 
 if st.session_state.show_topic_choice == True:
@@ -49,7 +55,13 @@ if st.session_state.show_topic_choice == True:
     #st.write("You selected:", options)
     #st.write("The indexes are", topics_selected)
     
-    st.button("Start quiz", on_click=quiz)
+    st.button("Start quiz", on_click=start_quiz)
+
+if st.session_state.quiz_mode == True:
+    current_question_list = st.session_state.selected_questions[st.session_state.q_index]
+    current_question_from_bank = st.session_state.question_bank[current_question_list[0]][current_question_list[1]]
+    st.write(current_question_from_bank[0])
+
 
 
 
