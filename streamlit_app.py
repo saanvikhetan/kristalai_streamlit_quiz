@@ -31,6 +31,7 @@ def start_quiz():
 def iterate_question():
     st.session_state.q_index += 1 
     if st.session_state.q_index == len(st.session_state.selected_questions):
+        st.session_state.show_quiz_mode = False
         st.session_state.show_end_quiz = True
     user_answer_index = current_question_from_bank.index(user_answer)
     if (user_answer_index-1) == (ord(current_question_from_bank[5]) - ord('A')):
