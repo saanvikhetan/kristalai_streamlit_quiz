@@ -1,8 +1,8 @@
 import streamlit as st
 
-st.title("🎈 My new app")
+st.title("Quiz")
 st.write(
-    "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
+    "Securities and Futures Act 2001"
 )
 
 def quiz():
