@@ -8,7 +8,7 @@ st.write(
 options = st.multiselect(
     "What topics would you like to be quizzed on?",
     (["Securities", "Securities-based derivatives contract", "Securities Industry Council"])
-
+)
 
 st.write("You selected:", options)
 
