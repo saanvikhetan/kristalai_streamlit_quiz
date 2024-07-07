@@ -17,11 +17,11 @@ def read_csv():
     st.session_state.question_bank = []
     for x in range(len(topics_list)):
         file_path = f"questions_{x}.csv"
-        st.write("reading", file_path)
+        #st.write("reading", file_path)
         df = pd.read_csv(file_path, sep='\t')
-        st.write("read " + str(df.shape[0]) + " rows")
+        #st.write("read " + str(df.shape[0]) + " rows")
         st.session_state.question_bank.append(df.values.tolist())
-    st.write(st.session_state.question_bank)
+    #st.write(st.session_state.question_bank)
 
 read_csv()
 
