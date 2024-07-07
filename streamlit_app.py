@@ -5,6 +5,9 @@ topics_list = ["Securities", "Securities-based derivatives contract", "Securitie
 
 if "show_topic_choice" not in st.session_state:
     st.session_state.show_topic_choice = True
+if "quiz_mode" not in st.session_state:
+    st.session_state.quiz_mode = False
+
     
 
 
