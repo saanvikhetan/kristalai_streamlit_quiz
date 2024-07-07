@@ -23,7 +23,7 @@ def start_quiz():
     while len(st.session_state.selected_questions)<10:
         for x in topics_selected:
             if len(st.session_state.selected_questions)<10:
-                new_q = [x,random.randint(0,len(st.session_state.question_bank[x]-1))]
+                new_q = [x,random.randint(0,len(st.session_state.question_bank[x])-1)]
                 if new_q not in st.session_state.selected_questions:
                     st.session_state.selected_questions.append(new_q)
     st.write(st.session_state.selected_questions)
