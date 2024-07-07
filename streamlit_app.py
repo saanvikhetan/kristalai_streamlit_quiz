@@ -5,6 +5,10 @@ st.write(
     "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
 )
 
+def quiz():
+    st.write("Starting quiz...")
+    
+
 topics_list = ["Securities", "Securities-based derivatives contract", "Securities Industry Council"]
 
 options = st.multiselect(
@@ -20,6 +24,10 @@ for x in topics_list:
 
 st.write("You selected:", options)
 st.write("The indexes are", topics_selected)
+
+st.button("Start quiz", on_click=quiz)
+
+
 
 
 
