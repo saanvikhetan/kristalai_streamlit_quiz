@@ -6,9 +6,11 @@ st.write(
 )
 
 options = st.multiselect(
-    "What are your favorite colors",
-    ["Green", "Yellow", "Red", "Blue"],
-    ["Yellow", "Red"])
+    "What topics would you like to be quizzed on?",
+    (["Securities", "Securities-based derivatives contract", "Securities Industry Council"])
+
 
 st.write("You selected:", options)
+
+
 
