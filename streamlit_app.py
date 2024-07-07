@@ -67,7 +67,8 @@ def iterate_question():
     if (user_answer_index-1) == (ord(current_question_from_bank[5]) - ord('A')):
         st.write("You selected the correct answer!")
     else:
-        st.write(f"You selected the wrong answer. The correct one was number {(current_question_from_bank[5] - 'A')+1}")
+        st.write("You selected the wrong answer. The correct one was number " + 
+            str((ord(current_question_from_bank[5]) - ord('A'))+1))
 
 if st.session_state.quiz_mode == True:
     current_question_list = st.session_state.selected_questions[st.session_state.q_index]
