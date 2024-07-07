@@ -26,7 +26,7 @@ def start_quiz():
                 new_q = [x,random.randint(0,len(st.session_state.question_bank[x]-1))]
                 if new_q not in st.session_state.selected_questions:
                     st.session_state.selected_questions.append(new_q)
-
+    st.write(st.session_state.selected_questions)
     #st.session_state.selected_questions = [[1,2],[0,3],[1,5]]
     st.session_state.q_index = 0
     st.session_state.show_quiz_mode = True
