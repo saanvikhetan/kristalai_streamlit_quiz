@@ -36,7 +36,7 @@ def start_quiz():
 
     # TODO: select questions randomly
 
-    st.session_state.selected_questions = [[1,2][0,3][1,5]]
+    st.session_state.selected_questions = [[1,2],[0,3],[1,5]]
     st.session_state.q_index = 0
     st.session_state.quiz_mode = True
 
