@@ -60,12 +60,22 @@ if st.session_state.show_topic_choice == True:
     
     st.button("Start quiz", on_click=start_quiz)
 
+
+def iterate_question():
+    st.session_state.q_index += 1
+    st.write(user_answer)
+
+
 if st.session_state.quiz_mode == True:
     current_question_list = st.session_state.selected_questions[st.session_state.q_index]
     current_question_from_bank = st.session_state.question_bank[current_question_list[0]][current_question_list[1]]
-    st.write(current_question_from_bank[0])
+    #st.write(current_question_from_bank[0])
+    user_answer = st.radio(
+        current_question_from_bank[0],
+        [current_question_from_bank[1], current_question_from_bank[2], 
+        current_question_from_bank[3],current_question_from_bank[4]])
 
-
+    st.button("Enter", on_click=iterate_question)
 
 
 
