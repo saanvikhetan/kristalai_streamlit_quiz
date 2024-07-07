@@ -24,7 +24,7 @@ def read_csv():
         df = pd.read_csv(file_path, sep='\t')
         st.write("read " + str(df.shape[0]) + " rows")
         st.session_state.question_bank.append(df.values.tolist())
-    #st.write(st.session_state.question_bank)
+    st.write(st.session_state.question_bank)
 
 read_csv()
 
