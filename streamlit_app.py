@@ -101,7 +101,7 @@ if st.session_state.show_quiz_mode == True:
 
 ### Display option:  Show quiz end with score, and a button to start next quiz
 if st.session_state.show_end_quiz == True:
-    st.write(f"Your score is {st.session_state.score}/10.")
+    st.write(f"Your score is {st.session_state.score}/{len(st.session_state.selected_questions)}.")
     st.button("Start another quiz", on_click=start_new_quiz)
 
 
