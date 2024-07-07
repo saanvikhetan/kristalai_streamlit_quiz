@@ -29,7 +29,6 @@ def start_quiz():
     #st.write(st.session_state.selected_questions)
     #st.session_state.selected_questions = [[1,2],[0,3],[1,5]]
     st.session_state.q_index = 0
-    st.session_state.show_quiz_mode = True
     st.session_state.score = 0
 
 def iterate_question():
