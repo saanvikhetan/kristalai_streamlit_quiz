@@ -7,7 +7,7 @@ import random
 def read_csv():
     st.session_state.question_bank = []
     for x in range(len(topics_list)):
-        file_path = f"questions_{x}.csv"
+        file_path = f"questions/questions_{x}.csv"
         #st.write("reading", file_path)
         df = pd.read_csv(file_path, sep='\t')
         #st.write("read " + str(df.shape[0]) + " rows")
@@ -38,12 +38,12 @@ def iterate_question():
         st.session_state.show_quiz_mode = False
         st.session_state.show_end_quiz = True
     user_answer_index = current_question_from_bank.index(user_answer)
-    if (user_answer_index-1) == (ord(current_question_from_bank[5]) - ord('A')):
+    if (user_answer_index-1) == (ord(current_question_from_bank[5].upper()) - ord('A')):
         st.write("You selected the correct answer!")
         st.session_state.score += 1
     else:
         st.write("You selected the wrong answer. The correct one was number " + 
-            str((ord(current_question_from_bank[5]) - ord('A'))+1))
+            str((ord(current_question_from_bank[5].upper()) - ord('A'))+1))
 
 def start_new_quiz():
     st.session_state.show_topic_choice = True
@@ -52,7 +52,10 @@ def start_new_quiz():
 
 #### initialize global variables and session state
 
-topics_list = ["Securities", "Securities-based derivatives contract", "Securities Industry Council"]
+topics_list = ["Securities", "Securities-based derivatives contract", "Securities Industry Council", 
+"Administering a financial benchmark", "Advising on corporate finance", "Advocate and solicitor", 
+"Licensed trade repository", "Limited liability partnership", "Listing rules", "Product financing"
+]
 
 if "show_topic_choice" not in st.session_state:
     st.session_state.show_topic_choice = True
