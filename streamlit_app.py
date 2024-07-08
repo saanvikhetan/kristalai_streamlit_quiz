@@ -118,12 +118,12 @@ if st.session_state.show_end_quiz == True:
     st.write(f"Your score is {st.session_state.score}/{len(st.session_state.selected_questions)}.")
     st.button("Start another quiz", on_click=start_new_quiz)
     
-    #file_path = "scores.csv"
-    #new_data = {'name': str(st.session_state.name), 'score': str(st.session_state.score)}
-    #df = pd.read_csv(file_path)
-    #df = df.append(new_data, ignore_index=True)
-    #df.to_csv(file_path, index=False)
-    #st.write(df)
+    file_path = "scores.csv"
+    new_data = {'name': str(st.session_state.name), 'score': str(st.session_state.score)}
+    df = pd.read_csv(file_path)
+    df = df.append(new_data, ignore_index=True)
+    df.to_csv(file_path, index=False)
+    st.dataframe(df)
 
 ### Display option:  User enters name
 if st.session_state.show_enter_name == True:
