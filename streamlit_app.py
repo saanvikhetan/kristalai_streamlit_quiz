@@ -128,9 +128,9 @@ if st.session_state.show_end_quiz == True:
 
     # Read the CSV file and show it as a table
     df = pd.read_csv(file_path)
-    #st.dataframe(df)
-    st.table(df)
-    
+    st.dataframe(df)
+    #st.table(df)
+
     #file_path = "scores.csv"
     #new_data = {'Name': str(st.session_state.name), 'Score': str(st.session_state.score)}
     #df = pd.read_csv(file_path)
