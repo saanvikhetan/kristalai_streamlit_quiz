@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import random
+import csv
 
 #### Functions
 
@@ -118,12 +119,24 @@ if st.session_state.show_end_quiz == True:
     st.write(f"Your score is {st.session_state.score}/{len(st.session_state.selected_questions)}.")
     st.button("Start another quiz", on_click=start_new_quiz)
     
-    file_path = "scores.csv"
-    new_data = {'Name': str(st.session_state.name), 'Score': str(st.session_state.score)}
+    # Add new row to the CSV file
+    new_data = [str(st.session_state.name), str(st.session_state.score)]
+    file_path = 'scores.csv'
+    with open(file_path, 'a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(new_data)
+
+    # Read the CSV file and show it as a table
     df = pd.read_csv(file_path)
-    df = df.append(new_data, ignore_index=True)
-    df.to_csv(file_path, index=False)
-    st.dataframe(df)
+    #st.dataframe(df)
+    st.table(df)
+    
+    #file_path = "scores.csv"
+    #new_data = {'Name': str(st.session_state.name), 'Score': str(st.session_state.score)}
+    #df = pd.read_csv(file_path)
+    #df = df.append(new_data, ignore_index=True)
+    #df.to_csv(file_path, index=False)
+    #st.dataframe(df)
 
 ### Display option:  User enters name
 if st.session_state.show_enter_name == True:
