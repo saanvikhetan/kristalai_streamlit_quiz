@@ -119,7 +119,7 @@ if st.session_state.show_end_quiz == True:
     st.button("Start another quiz", on_click=start_new_quiz)
     
     file_path = "scores.csv"
-    new_data = {'name': str(st.session_state.name), 'score': str(st.session_state.score)}
+    new_data = {'Name': str(st.session_state.name), 'Score': str(st.session_state.score)}
     df = pd.read_csv(file_path)
     df = df.append(new_data, ignore_index=True)
     df.to_csv(file_path, index=False)
