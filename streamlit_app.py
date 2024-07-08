@@ -42,7 +42,7 @@ def iterate_question():
         st.session_state.score += 1
     else:
         st.write("You selected the wrong answer. The correct one was number " + 
-            str((ord(current_question_from_bank[5].upper()) - ord('A'))+1)) + f"\n{ord(current_question_from_bank[current_question_from_bank[5].upper() - ord('A')+1])}"
+            str((ord(current_question_from_bank[5].upper()) - ord('A'))+1)) + f"\n{current_question_from_bank[ord(current_question_from_bank[5].upper()) - ord('A')+1]}"
 
 def start_new_quiz():
     st.session_state.show_topic_choice = True
