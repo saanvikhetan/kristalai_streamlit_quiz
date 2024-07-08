@@ -14,6 +14,10 @@ def read_csv():
         st.session_state.question_bank.append(df.values.tolist())
     #st.write(st.session_state.question_bank)
 
+def name_to_topic():
+    st.session_state.show_topic_choice = True
+    st.session_state.show_enter_name = False
+
 def start_quiz():
     #st.write("Starting quiz...")
     st.session_state.show_topic_choice = False
@@ -45,9 +49,11 @@ def iterate_question():
         str((ord(current_question_from_bank[5].upper()) - ord('A')) + 1) + " - " +
         f"{current_question_from_bank[(ord(current_question_from_bank[5].upper()) - ord('A')) + 1]}")
 def start_new_quiz():
-    st.session_state.show_topic_choice = True
+    st.session_state.show_topic_choice = False
     st.session_state.show_quiz_mode = False
     st.session_state.show_end_quiz = False
+    st.session_state.show_enter_name = True
+
 
 #### initialize global variables and session state
 
@@ -112,7 +118,7 @@ if st.session_state.show_end_quiz == True:
     st.write(f"Your score is {st.session_state.score}/{len(st.session_state.selected_questions)}.")
     st.button("Start another quiz", on_click=start_new_quiz)
 
-
+### Display option:  User enters name
 if st.session_state.show_enter_name == True:
     st.session_state.name = st.text_input("Please enter your name")
-    st.button("Enter", on_click=st.session_state.show_topic_choice == True)
+    st.button("Enter", on_click=name_to_topic)
