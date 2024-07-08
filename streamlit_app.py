@@ -57,11 +57,13 @@ topics_list = ["Securities", "Securities-based derivatives contract", "Securitie
 ]
 
 if "show_topic_choice" not in st.session_state:
-    st.session_state.show_topic_choice = True
+    st.session_state.show_topic_choice = False
 if "show_quiz_mode" not in st.session_state:
     st.session_state.show_quiz_mode = False
 if "show_end_quiz" not in st.session_state:
     st.session_state.show_end_quiz = False
+if "show_enter_name" not in st.session_state:
+    st.session_state.show_enter_name = True
     
 # read in question bank
 read_csv()
@@ -111,4 +113,6 @@ if st.session_state.show_end_quiz == True:
     st.button("Start another quiz", on_click=start_new_quiz)
 
 
-
+if st.session_state.show_enter_name == True:
+    st.session_state.name = st.text_input("Please enter your name")
+    st.button("Enter", on_click=st.session_state.show_topic_choice == True)
