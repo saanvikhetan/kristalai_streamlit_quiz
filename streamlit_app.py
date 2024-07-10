@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import random
 import csv
+import os
 
 #### Functions
 
@@ -55,8 +56,23 @@ def iterate_question():
         st.session_state.show_end_quiz = True
 
          # Add new row to the CSV file
-        new_data = [str(st.session_state.name), str(st.session_state.score)]
         file_path = 'scores.csv'
+        file_exists = os.path.isfile(file_path)
+        
+
+        with open(file_path, 'a', newline = '') as csvfile:
+            fieldnames = ['Date', 'Name', 'Score']
+            writer.csv.DictWriter(csvfile, fieldnames = fieldnames)
+
+            if not file_exists:
+                writer.writeheader()
+            
+            writer.writerow({
+                'Date' : self.end_time.strftime('%Y-%m-%d'),
+                'Name' : st.session_state.name,
+                'Score' : st.session_state.score
+            })
+
         with open(file_path, 'a', newline='') as file:
             writer = csv.writer(file)
             writer.writerow(new_data)
