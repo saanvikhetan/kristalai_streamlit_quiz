@@ -4,16 +4,18 @@ import random
 import csv
 import os
 
+
+
 #### Functions
 
 def read_csv():
     st.session_state.question_bank = []
-    for x in range(len(topics_list)):
-        file_path = f"questions/questions_{x}.csv"
+    #for x in range(len(topics_list)):
+    file_path = f"questions/questions_{x}.csv"
         #st.write("reading", file_path)
-        df = pd.read_csv(file_path, sep='\t')
+    df = pd.read_csv(file_path, sep='\t')
         #st.write("read " + str(df.shape[0]) + " rows")
-        st.session_state.question_bank.append(df.values.tolist())
+    st.session_state.question_bank.append(df.values.tolist())
     #st.write(st.session_state.question_bank)
 
 def name_to_topic():
@@ -54,7 +56,7 @@ def iterate_question():
         # this was the last question, so add the score to csv and move to end_quiz display mode
         st.session_state.show_quiz_mode = False
         st.session_state.show_end_quiz = True
-
+'''
          # Add new row to the CSV file
         file_path = 'scores.csv'
         file_exists = os.path.isfile(file_path)
@@ -76,7 +78,7 @@ def iterate_question():
         with open(file_path, 'a', newline='') as file:
             writer = csv.writer(file)
             writer.writerow(new_data)
-
+'''
 
 def start_new_quiz():
     st.session_state.show_topic_choice = False
