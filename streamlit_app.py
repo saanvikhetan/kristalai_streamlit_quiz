@@ -10,7 +10,7 @@ import os
 
 def read_csv():
     st.session_state.question_bank = []
-    #for x in range(len(topics_list)):
+    for x in range(len(topics_list)):
     file_path = f"questions/questions_{x}.csv"
         #st.write("reading", file_path)
     df = pd.read_csv(file_path, sep='\t')
